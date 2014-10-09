@@ -1,0 +1,19 @@
+html
+    head
+        link(rel="stylesheet", href="/stylesheets/style.css")
+        script(type="text/javascript", src="/javascripts/jquery-1.11.1.js")
+        script(type="text/javascript", src="/javascripts/tasks.js")
+    body
+        h1 Tasks
+        hr
+        h2 Tasks Count = #{tasks.length}
+        ol
+            each task in tasks
+                li(taskId="#{task.id}")
+                    if task.isCompleted
+                        span(class="completed") #{task.name}
+                    else
+                        span #{task.name}
+                    input(type="button", value="Toggle", class="toggleButton")
+        a(href="/tasks/new") Create New
+    
